@@ -1,0 +1,149 @@
+<!-- Day 9: DOM Manipulation
+Tasks/Activities:
+
+
+Activity 1: Selecting and Manipulating Elements
+Task 1: Select an HTML element by its ID and change its text content.
+Task 2: Select an HTML element by its class and change its background color.
+
+Activity 2: Creating and Appending Elements
+Task 3: Create a new div element with some text content and append it to the body.
+Task 4: Create a new li element and add it to an existing ul list.
+
+Activity 3: Removing Elements
+Task 5: Select an HTML element and remove it from the DOM.
+Task 6: Remove the last child of a specific HTML element.
+
+Activity 4: Modifying Attributes and Classes
+Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).
+Task 8: Add and remove a CSS class to/from an HTML element.
+
+Activity 5: Event Handling
+Task 9: Add a click event listener to a button that changes the text content of a paragraph.
+Task 10: Add a mouseover event listener to an element that changes its border color. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+    <style>
+        .myClass {
+            padding: 10px;
+            border: 1px solid black;
+            /* background-color: antiquewhite; */
+        }
+        .highlight {
+            border-color: red;
+            background-color: aquamarine !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Activity 1 -->
+    <h1 id="myElement">Original text</h1>
+    <div class="myClass">Background color will change</div>
+
+    <!-- Activity 2 -->
+    <ul id="myList">
+        <li>Existing list item</li>
+    </ul>
+    <button id="addDivButton">Add New Div</button>
+    <button id="addLiButton">Add New List Item</button>
+
+    <!-- Activity 3 -->
+    <button id="removeElementButton">Remove Element</button>
+    <div id="parentElement">
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+    </div>
+    <button id="removeLastChildButton">Remove Last Child</button>
+
+    <!-- Activity 4 -->
+    <img id="myImage" src="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg" alt="Sample Image">
+    <button id="changeImageSrcButton">Change Image Source</button>
+    <div id="myElement" class="myElement">This is a div element</div>
+    <button id="toggleClassButton">Toggle Class</button>
+
+    <!-- Activity 5 -->
+    <button id="myButton">Click Me</button>
+    <p id="myParagraph">Original paragraph text</p>
+
+   
+    <div id="hoverElement" class="myClass">Hover over me</div>
+
+    <script>
+        // Activity 1
+        // task 1
+       const task1=  document.getElementById('myElement')
+       task1.textContent = 'New text content';
+        // task 2
+       const task2 = document.querySelector('.myClass')
+       task2.style.backgroundColor = 'lightblue';
+
+        // Activity 2
+        // task 3
+        const task3 = document.getElementById('addDivButton')
+        task3.addEventListener('click', () => {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = 'This is a new div element';
+            document.body.appendChild(newDiv);
+        });
+          
+          // task 4
+        const task4 = document.getElementById('addLiButton')
+        task4.addEventListener('click', () => {
+            const ul = document.getElementById('myList');
+            const newLi = document.createElement('li');
+            newLi.textContent = 'New list item';
+            ul.appendChild(newLi);
+        });
+
+        // Activity 3
+          // task 5
+        const task5 = document.getElementById('removeElementButton')
+        task5.addEventListener('click', () => {
+            document.getElementById('parentElement').remove();
+        });
+
+
+           // task 6
+        const task6 = document.getElementById('removeLastChildButton')
+        task6.addEventListener('click', () => {
+            const parentElement = document.getElementById('parentElement');
+            if (parentElement && parentElement.lastChild) {
+                parentElement.removeChild(parentElement.lastChild);
+            }
+        });
+
+        // Activity 4
+          // task 7
+         const task7 = document.getElementById('changeImageSrcButton')
+         task7.addEventListener('click', () => {
+            document.getElementById('myImage').src = 'https://static3.cegos.fr/content/uploads/2022/01/31160704/nature-efficacite.jpg';
+        });
+
+          // task 8
+
+         const task8 = document.getElementById('toggleClassButton').addEventListener('click', () => {
+            const element = document.getElementById('myElement');
+            element.classList.toggle('highlight');
+        });
+
+        // Activity 5
+          // task 9
+        const task9 = document.getElementById('myButton')
+        task9.addEventListener('click', () => {
+            document.getElementById('myParagraph').textContent = 'Button was clicked!';
+        });
+        
+          // task 10
+        const task10 = document.getElementById('hoverElement')
+        task10.addEventListener('mouseover', () => {
+            document.getElementById('hoverElement').style.borderColor = 'red';
+        });
+    </script>
+</body>
+</html>
