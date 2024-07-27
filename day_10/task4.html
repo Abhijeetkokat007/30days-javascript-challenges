@@ -1,0 +1,22 @@
+<!-- Task 4: Add a mouseout event listener to an element that resets its background color. -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body>
+    <div id="hoverElement" style="width: 200px; height: 200px; background-color: rgb(249, 178, 80);">Hover over me!</div>
+    
+    <script>
+        document.getElementById('hoverElement').addEventListener('mouseout', function() {
+            this.style.backgroundColor = 'rgb(80, 102, 249);';
+        });
+    </script>
+</body>
+</html>

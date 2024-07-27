@@ -1,0 +1,32 @@
+<!-- Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body>
+    <div id="parentElement">
+        <!-- Dynamic elements will be added here -->
+    </div>
+    <button id="addElementButton">Add Element</button>
+    
+    <script>
+        document.getElementById('parentElement').addEventListener('click', function(event) {
+            if (event.target.classList.contains('dynamicElement')) {
+                console.log(`Dynamic element clicked: ${event.target.textContent}`);
+            }
+        });
+
+        document.getElementById('addElementButton').addEventListener('click', function() {
+            const newElement = document.createElement('div');
+            newElement.classList.add('dynamicElement');
+            newElement.textContent = 'I am a dynamic element';
+            document.getElementById('parentElement').appendChild(newElement);
+        });
+    </script>
+</body>
+</html>

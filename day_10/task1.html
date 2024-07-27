@@ -1,0 +1,21 @@
+<!-- Task 1: Add a click event listener to a button that changes the text content of a paragraph. -->
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body>
+    <button id="changeTextButton">Click Me</button>
+    <p id="textParagraph">Original Text</p>
+
+    <script>
+        document.getElementById('changeTextButton').addEventListener('click', function() {
+            document.getElementById('textParagraph').textContent = 'Text has been changed!';
+        });
+    </script>
+</body>
+</html>
